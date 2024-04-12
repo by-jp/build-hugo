@@ -12,10 +12,10 @@ A docker container for building [hugo](https://gohugo.io) static sites, includin
 By default this will run `task build` in the `/build` directory. The specified docker command will be used as the command for your taskfile:
 
 ```bash
-# Runs `task dev` in the current directory
-docker run -v $(pwd):/build ghcr.io/by-jp/hugo-build dev
+# Runs `task --list-all` in the current directory
+docker run -v $(pwd):/build ghcr.io/by-jp/hugo-build --list-all
 ```
 
 ## Maintenance
 
-The scripts behind `task upgrade` should be able to manually bump to the latest stable versions of these tools (which I aim to target here). In the future, this may be run regularly automatically.
+In this repo the scripts behind `task upgrade` should be able to manually bump to the latest stable versions of these tools (which I aim to target here). In the future, this may be run regularly & automatically.
