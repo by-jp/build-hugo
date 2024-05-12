@@ -15,5 +15,4 @@ RUN sh install-tools.sh && rm ./install-tools.sh
 
 WORKDIR /build
 
-ENTRYPOINT ["task"]
-CMD ["build"]
+CMD ["task", "build"]
