@@ -9,11 +9,11 @@ A docker container for building [hugo](https://gohugo.io) static sites, includin
 
 ## Usage
 
-By default this will run `task build` in the `/build` directory. The specified docker command will be used as the command for your taskfile:
+By default this will run `task build` in the `/workspace` directory. The specified docker command will be used as the command for your taskfile:
 
 ```bash
 # Runs `task --list-all` in the current directory
-docker run -v $(pwd):/build ghcr.io/by-jp/build-hugo task--list-all
+docker run -v $(pwd):/workspace ghcr.io/by-jp/build-hugo task--list-all
 ```
 
 ## Maintenance

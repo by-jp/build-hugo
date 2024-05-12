@@ -14,5 +14,3 @@ ADD install-tools.sh .
 RUN sh install-tools.sh && rm ./install-tools.sh
 
 WORKDIR /build
-
-CMD ["task", "build"]
