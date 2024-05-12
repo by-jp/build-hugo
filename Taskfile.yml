@@ -7,6 +7,8 @@ env:
     sh: curl -s https://go.dev/VERSION\?m\=text | head -n1 | sed 's/^go//'
   latest_pagefind:
     sh: gh release list -L 1 -R CloudCannon/pagefind --exclude-drafts --exclude-pre-releases --json tagName --jq '.[0].tagName' | sed 's/^v//'
+  latest_hugo:
+    sh: gh release list -L 1 -R gohugoio/hugo --exclude-drafts --exclude-pre-releases --json tagName --jq '.[0].tagName' | sed 's/^v//'
   latest_task:
     sh: gh release list -L 1 -R go-task/task --exclude-drafts --exclude-pre-releases --json tagName --jq '.[0].tagName' | sed 's/^v//'
   latest_lychee:
@@ -20,3 +22,4 @@ tasks:
       - sed -i -e 's/PAGEFIND_VERSION=.+\n/PAGEFIND_VERSION={{ .latest_pagefind }}\n/' Dockerfile
       - sed -i -e 's/TASK_VERSION=.+\n/TASK_VERSION={{ .latest_task }}\n/' Dockerfile
       - sed -i -e 's/LYCHEE_VERSION=.+\n/LYCHEE_VERSION={{ .latest_lychee }}\n/' Dockerfile
+      - sed -i -e 's/HUGO_VERSION=.+\n/HUGO_VERSION={{ .latest_hugo }}\n/' Dockerfile

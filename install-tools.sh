@@ -1,3 +1,4 @@
+#!/usr/bin/bash
 set -ex
 echo "Installing $TARGETPLATFORM tools..."
 RUST_ARCH=$(if [ "$TARGETPLATFORM" = "linux/arm64" ]; then echo "aarch64"; else echo "x86_64"; fi)
@@ -7,7 +8,7 @@ wget -q -O pagefind.tar.gz "https://github.com/CloudCannon/pagefind/releases/dow
   && mv pagefind /usr/local/bin/pagefind \
   && rm pagefind.tar.gz
 
-wget -q -O task.tar.gz "https://github.com/go-task/task/releases/download/v${TASK_VERSION}/task_${TARGETPLATFORM//\//_}.tar.gz" \
+wget -q -O task.tar.gz "https://github.com/go-task/task/releases/download/v${TASK_VERSION}/task_${TARGETPLATFORM/\//_}.tar.gz" \
   && tar -xpf task.tar.gz task \
   && mv task /usr/local/bin/task \
   && rm task.tar.gz
@@ -16,3 +17,8 @@ wget -q -O lychee.tar.gz "https://github.com/lycheeverse/lychee/releases/downloa
   && tar -xpf lychee.tar.gz lychee \
   && mv lychee /usr/local/bin/lychee \
   && rm lychee.tar.gz
+
+wget -q -O hugo.tar.gz "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_${TARGETPLATFORM/\//-}.tar.gz" \
+  && tar -xpf hugo.tar.gz hugo \
+  && mv hugo /usr/local/bin/hugo \
+  && rm hugo.tar.gz
