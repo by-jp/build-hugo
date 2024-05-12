@@ -18,8 +18,8 @@ env:
 tasks:
   upgrade:
     cmds:
-      - sed -i -e 's/FROM golang:.+-/FROM golang:{{ .latest_go }}/' Dockerfile
-      - sed -i -e 's/PAGEFIND_VERSION=.+\n/PAGEFIND_VERSION={{ .latest_pagefind }}\n/' Dockerfile
-      - sed -i -e 's/TASK_VERSION=.+\n/TASK_VERSION={{ .latest_task }}\n/' Dockerfile
-      - sed -i -e 's/LYCHEE_VERSION=.+\n/LYCHEE_VERSION={{ .latest_lychee }}\n/' Dockerfile
-      - sed -i -e 's/HUGO_VERSION=.+\n/HUGO_VERSION={{ .latest_hugo }}\n/' Dockerfile
+      - gsed -i 's/FROM golang:.*-/FROM golang:{{ .latest_go }}-/' Dockerfile
+      - gsed -i 's/PAGEFIND_VERSION=.*$/PAGEFIND_VERSION={{ .latest_pagefind }}/' Dockerfile
+      - gsed -i 's/TASK_VERSION=.*$/TASK_VERSION={{ .latest_task }}/' Dockerfile
+      - gsed -i 's/LYCHEE_VERSION=.*$/LYCHEE_VERSION={{ .latest_lychee }}/' Dockerfile
+      - gsed -i 's/HUGO_VERSION=.*$/HUGO_VERSION={{ .latest_hugo }}/' Dockerfile
